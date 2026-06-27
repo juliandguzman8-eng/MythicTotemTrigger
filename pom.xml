@@ -1,4 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+Dos problemas claros en los errores:
+
+Java version — Paper 1.21.1 requiere Java 21, no Java 17
+API de MythicMobs incorrecta — los paquetes io.lumine.mythic.core.skills.trigger y algunos métodos no existen en la versión que usé
+
+Necesito reescribir el código con la API correcta y corregir el Java. Ve a GitHub y actualiza estos archivos:
+
+pom.xml — reemplaza todo el contenido
+En tu repo, haz clic en pom.xml → el lápiz (editar) → borra todo y pega esto:
+xml<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
@@ -10,22 +19,17 @@
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>MythicTotemTrigger</name>
-    <description>MythicMobs addon that adds the OnTotemPop trigger</description>
-
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <repositories>
-        <!-- Paper API -->
         <repository>
             <id>papermc</id>
             <url>https://repo.papermc.io/repository/maven-public/</url>
         </repository>
-        <!-- MythicMobs -->
         <repository>
             <id>mythicmobs</id>
             <url>https://mvn.lumine.io/repository/maven-public/</url>
@@ -33,15 +37,12 @@
     </repositories>
 
     <dependencies>
-        <!-- Paper API -->
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
             <version>1.21.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
-
-        <!-- MythicMobs API -->
         <dependency>
             <groupId>io.lumine</groupId>
             <artifactId>Mythic-Dist</artifactId>
@@ -58,25 +59,9 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
                 <configuration>
-                    <source>17</source>
-                    <target>17</target>
+                    <source>21</source>
+                    <target>21</target>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.5.1</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <createDependencyReducedPom>false</createDependencyReducedPom>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
