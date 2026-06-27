@@ -1,12 +1,4 @@
-Dos problemas claros en los errores:
 
-Java version — Paper 1.21.1 requiere Java 21, no Java 17
-API de MythicMobs incorrecta — los paquetes io.lumine.mythic.core.skills.trigger y algunos métodos no existen en la versión que usé
-
-Necesito reescribir el código con la API correcta y corregir el Java. Ve a GitHub y actualiza estos archivos:
-
-pom.xml — reemplaza todo el contenido
-En tu repo, haz clic en pom.xml → el lápiz (editar) → borra todo y pega esto:
 xml<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
