@@ -33,12 +33,11 @@ public class TotemPopListener implements Listener {
 
             if (activeMobOpt.isPresent()) {
                 ActiveMob mob = activeMobOpt.get();
-                mob.getSkillTriggers().triggerSkills(
-                        io.lumine.mythic.api.skills.SkillTrigger.INTERACT,
-                        mob,
-                        null,
+                mob.getCombatData().setLastDamager(null);
+                MythicBukkit.inst().getAPIHelper().castSkill(
                         mob.getEntity().getBukkitEntity(),
-                        null
+                        "onTotemPop",
+                        mob.getEntity().getBukkitEntity()
                 );
                 plugin.getLogger().info("[TotemPop] Trigger disparado en: "
                         + mob.getMobType().getInternalName());
