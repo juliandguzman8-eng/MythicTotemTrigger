@@ -1,0 +1,13 @@
+name: MythicTotemTrigger
+version: 1.0.0
+main: com.yourname.mythictotemtrigger.MythicTotemTrigger
+api-version: '1.21'
+description: Adds the OnTotemPop trigger to MythicMobs
+author: YourName
+
+depend:
+  - MythicMobs
+
+softdepend: []
+
+commands: {}
