@@ -36,8 +36,8 @@ public class TotemPopListener implements Listener {
                         mob.getEntity().getBukkitEntity(),
                         "onTotemPop"
                 );
-                plugin.getLogger().info("[TotemPop] Trigger disparado en: "
-                        + mob.getMobType().getInternalName());
+               plugin.getLogger().info("[TotemPop] Trigger disparado en: "
+                        + mob.getMobType());
             }
         });
     }
