@@ -1,7 +1,6 @@
 package com.yourname.mythictotemtrigger;
 
 import io.lumine.mythic.bukkit.MythicBukkit;
-import io.lumine.mythic.bukkit.events.MythicMobDeathEvent;
 import io.lumine.mythic.core.mobs.ActiveMob;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
@@ -33,11 +32,9 @@ public class TotemPopListener implements Listener {
 
             if (activeMobOpt.isPresent()) {
                 ActiveMob mob = activeMobOpt.get();
-                mob.getCombatData().setLastDamager(null);
                 MythicBukkit.inst().getAPIHelper().castSkill(
                         mob.getEntity().getBukkitEntity(),
-                        "onTotemPop",
-                        mob.getEntity().getBukkitEntity()
+                        "onTotemPop"
                 );
                 plugin.getLogger().info("[TotemPop] Trigger disparado en: "
                         + mob.getMobType().getInternalName());
